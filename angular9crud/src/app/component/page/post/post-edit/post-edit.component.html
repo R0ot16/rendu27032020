@@ -1,0 +1,20 @@
+<p>post-edit works!</p>
+<div class="card mb-4" style="margin-top: 25px">
+  <div class="container">
+    <form [formGroup]="angForm">
+      <div class="form-group">
+        <label for="title" class="text-info">Titre</label>
+        <input type="text" id="title" class="form-control" formControlName="title" #title [(ngModel)]="single.title">
+      </div>
+      <div class="form-group">
+        <label for="content" class="text-info">Contenu</label>
+        <textarea class="form-control" id="content" rows="5" formControlName="content" #content [(ngModel)]="single.contenu"></textarea>
+      </div>
+
+      <button type="button" class="float-right btn btn-warning" style="margin-bottom: 5px"
+      [disabled]="angForm.pristine || angForm.invalid"
+      (click)="editPost(title.value, content.value)">Modifier le post</button>
+
+    </form>
+  </div>
+</div>
